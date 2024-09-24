@@ -3,10 +3,10 @@ package imf.builders;
 import imf.pizza.Pizza;
 
 public class HawaiianPizzaBuilder implements PizzaBuilder{
-    private Pizza.Builder pizzaBuilder;
+    private final PizzaBuilderImpl pizzaBuilder;
 
     public HawaiianPizzaBuilder() {
-        this.pizzaBuilder = new Pizza.Builder();
+        this.pizzaBuilder = new PizzaBuilderImpl();
     }
 
     @Override

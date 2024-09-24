@@ -2,33 +2,34 @@ package imf.builders;
 
 import imf.pizza.Pizza;
 
-public class VegPizzaBuilder implements PizzaBuilder{
-    private final PizzaBuilderImpl pizzaBuilder;
+import java.util.ArrayList;
+import java.util.List;
 
-    public VegPizzaBuilder() {
-        this.pizzaBuilder = new PizzaBuilderImpl();
-    }
+public class PizzaBuilderImpl implements PizzaBuilder {
+    private String size;
+    private String dough;
+    private List<String> toppings = new ArrayList<>();
 
     @Override
     public PizzaBuilder setSize(String size) {
-        pizzaBuilder.setSize(size);
+        this.size = size;
         return this;
     }
 
     @Override
     public PizzaBuilder setDough(String dough) {
-        pizzaBuilder.setDough(dough);
+        this.dough = dough;
         return this;
     }
 
     @Override
     public PizzaBuilder addTopping(String topping) {
-        pizzaBuilder.addTopping(topping);
+        this.toppings.add(topping);
         return this;
     }
 
     @Override
     public Pizza build() {
-        return pizzaBuilder.build();
+        return new Pizza(size, dough, toppings);
     }
 }

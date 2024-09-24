@@ -14,9 +14,7 @@ public class PizzaMaster {
 
     public Pizza createPizza(String size, String dough, List<String> toppings) {
         pizzaBuilder.setSize(size).setDough(dough);
-        for (String topping : toppings) {
-            pizzaBuilder.addTopping(topping);
-        }
+        toppings.forEach(pizzaBuilder::addTopping);
         return pizzaBuilder.build();
     }
 }
